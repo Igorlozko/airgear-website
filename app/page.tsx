@@ -1,7 +1,6 @@
-import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div>Hello Air Gear</div>
+    <div className= "text-blue-300 text-2xl"> Welcome To The Gear Repo</div>
   )
 }
