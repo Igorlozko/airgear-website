@@ -1,11 +1,13 @@
-'use client'
+'use client';
 
 import Container from "../Container";
 
 import {TbBeach, TbCampfire} from 'react-icons/tb';
 import {GiBoots, GiFishing, GiHuntingBolas, GiPaddleSteamer, GiWindmill} from 'react-icons/gi';
 import {MdOutlineHiking, MdOutlinePedalBike, MdOutlineSnowboarding, MdOutlineSurfing, MdOutlineVilla} from 'react-icons/md';
+import{FaSkiing} from 'react-icons/fa';
 import CategoryBox from "../CategoryBox";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export const categories = [
     {
@@ -34,8 +36,8 @@ export const categories = [
         description: 'This is Water Sports'
     },
     {
-        label: 'Winter Sports',
-        icon: MdOutlineSnowboarding,
+        label: 'Snow',
+        icon: FaSkiing,
         description: 'This is Winter Sports'
     },
     {
@@ -53,6 +55,16 @@ export const categories = [
 
 
 const Categories = () =>{
+    const params = useSearchParams();
+    const category = params?.get('category');
+    const pathname = usePathname();
+
+    const isMainPage = pathname == '/';
+
+    if(!isMainPage){
+        return null;
+    }
+
     return(
         <Container>
             <div
@@ -69,7 +81,7 @@ const Categories = () =>{
                     <CategoryBox
                         key={item.label}
                         label={item.label}
-                        description={item.description}
+                        selected={category == item.label}
                         icon={item.icon}
                     />
                 ))}
