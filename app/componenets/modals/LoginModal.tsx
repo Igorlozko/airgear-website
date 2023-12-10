@@ -19,6 +19,7 @@ import toast from 'react-hot-toast/headless';
 import Button from '../Button';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import { useRouter } from 'next/navigation';
+import RegisterModal from './RegisterModal';
 
 const LoginModal = () => {
     const router = useRouter();
@@ -59,6 +60,12 @@ const LoginModal = () => {
             }
         })
     }
+
+    const toggle = useCallback(()=>{
+        loginModal.onClose();
+        registerModal.onOpen();
+
+    }, [loginModal, registerModal]);
 
     const bodyContent =(
         <div className = "flex flex-col gap-4">
@@ -110,17 +117,17 @@ const LoginModal = () => {
                 >
                     <div className="justify-center flex flex-row items-center gap-2">
                         <div>
-                            Already have an account ?
+                            First time using Gear Repo ?
                         </div>
                         <div
-                        onClick={registerModal.onClose}
+                        onClick={toggle}
                         className="
                             text-neutral-800
                             cursor-pointer
                             hover:underline
                         "
                         >
-                            Log In
+                            Create an account 
                         </div>
                     </div>
 
