@@ -44,7 +44,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 md:block
                 text-sm
                 font-semibold
-                py-6
+                py-5
                 px-4
                 rounded-full
                 hover:bg-neutral-100
@@ -58,8 +58,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 onClick={toggleOpen}
                 className="
                 p-4
-                md:py-6
-                md:px-2
+                md:py-2
+                md:px-5
                 border-[1px]
                 border-neutral-200
                 flex
@@ -72,8 +72,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 transition
                 "
                 >
-                    <AiOutlineMenu />
-                    <div className="hidden md:block">
+                    <div className='py-4'>
+                        <AiOutlineMenu  />
+                    </div>
+                    <div className="hidden md:block py-2">
                         <Avatar src={currentUser?.image}/>
                     </div>
                 </div>
@@ -111,7 +113,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                         />
                         <MenuItem
                         onClick={()=>{}}
-                        label ="My properties"
+                        label ="My gear"
                         />
                         <MenuItem
                         onClick={rentModal.onOpen}

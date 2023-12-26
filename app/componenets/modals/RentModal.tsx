@@ -9,6 +9,8 @@ import CategoryInput from "../inputs/CategoryInput";
 import { FieldValue, FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
+import Counter from "../inputs/Counter";
+import ImageUpload from "../inputs/ImageUpload";
 
 
 enum STEPS {
@@ -39,9 +41,7 @@ const RentModal = ()=>{
         defaultValues:{
             category:'',
             location: null,
-            guestCount: 1,
-            roomCount: 1,
-            bathroomCount:1,
+            renterCount: 1,
             imageSrc:'',
             price: 1,
             title: '',
@@ -51,6 +51,8 @@ const RentModal = ()=>{
 
     const category = watch('category');
     const location = watch('location');
+    const renterCount = watch('renterCount');
+    const imageSrc = watch('imageSrc');
 
     const Map = useMemo(() => dynamic(() => import('../Map'), {
         ssr: false
@@ -133,6 +135,38 @@ const RentModal = ()=>{
         )
     }
 
+    if(step == STEPS.INFO){
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title ="Share info about the iteam you are renting"
+                    subtitle ="What is the specifications"
+                />
+                <Counter
+                    title ="Renters"
+                    subtitle="How many renters do you allow per item ?"
+                    value={renterCount}
+                    onChange={(value) => setCustomValue('renterCount',value)}
+                />
+            </div>
+        )
+    }
+
+    if(step == STEPS.IMAGES){
+        bodyContent =(
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title = "Add photos of your gear"
+                    subtitle="Show renters what your gear looks like"
+                />
+                <ImageUpload
+                    value={imageSrc}
+                    onChange={(value)=> setCustomValue('imageSrc', value)}
+                />
+            </div>
+        )
+    }
+
     return (
         <Modal
         isOpen={rentModal.isOpen}
@@ -140,7 +174,7 @@ const RentModal = ()=>{
         onSubmit={onNext}
         actionLable={actionLable}
         secondaryActionLable={secondaryActionLable}
-        secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
+        secondaryAction={step == STEPS.CATEGORY ? undefined : onBack}
         title = "My Gear Repo"
         body = {bodyContent}
         />
