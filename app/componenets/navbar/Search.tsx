@@ -44,7 +44,7 @@ const Search = () => {
     if(guestCount){
       return `${guestCount} Guests`;
     }
-    return 'Add Guests'
+    return 'Add Renters'
   },[guestCount]);
 
   return (

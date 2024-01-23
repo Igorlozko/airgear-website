@@ -52,6 +52,10 @@ const ListingCard: React.FC<ListingCardProps> =({
         return data.price;
     },[reservation, data.price]);
 
+    const title = useMemo(() => {
+        return data.title;
+    },[]);
+
     const reservationDate = useMemo(()=>{
         if(!reservation){
             return null;
@@ -99,7 +103,10 @@ const ListingCard: React.FC<ListingCardProps> =({
                         />
                     </div>
                 </div>
-                <div className="font-semibold text-lg">
+                <div className="font-semibold text-xl">
+                    {title}
+                </div>
+                <div className=" text-neutral-800 text-md">
                     {location?.region}, {location?.label}
                 </div>
                 <div className="font-light text-neutral-500">
@@ -107,7 +114,7 @@ const ListingCard: React.FC<ListingCardProps> =({
                 </div>
                 <div className="flex flex-row items-center gap-1">
                     <div className="font-semibold">
-                        $ {price}
+                        € {price}
                     </div>
                     {!reservation && (
                         <div className="font-light">/day</div>

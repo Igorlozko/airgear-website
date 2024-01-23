@@ -54,7 +54,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 cursor-pointer
                 "
                 >
-                My Gear Repo
+                Rent your gear
                 </div>
                 <div 
                 onClick={toggleOpen}
@@ -119,7 +119,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                         />
                         <MenuItem
                         onClick={rentModal.onOpen}
-                        label ="My Gear Repo"
+                        label ="Rent my gear"
                         />
                         <hr />
                         <MenuItem

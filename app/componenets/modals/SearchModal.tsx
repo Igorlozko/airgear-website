@@ -105,7 +105,7 @@ const SearchModal =() =>{
         gap-8
         ">
             <Heading
-                title="Where to find gear ?"
+                title="Pick a location ?"
                 subtitle="Find the perfect gear"
             />
             <CountrySelect
@@ -124,7 +124,7 @@ const SearchModal =() =>{
             <div className=" flex flex-col gap-8">
                 <Heading
                     title="When do you plan to rent?"
-                    subtitle="Make sure you all set"
+                    subtitle="Make sure that you are all set"
                 />
                 <Calendar
                     value={dateRange}
@@ -138,12 +138,12 @@ const SearchModal =() =>{
         bodyContent =(
             <div className="flex flex-col gap-8">
                 <Heading
-                    title="More information"
-                    subtitle="Find the perfect gear"
+                    title="How many are renting ?"
+                    subtitle=""
                 />
                 <Counter
                     title ="Renters"
-                    subtitle="How many people are renting ?"
+                    subtitle="Enter the number of renters per iteam ?"
                     value={guestCount}
                     onChange={(value)=> setGuestCount(value)}
                 />

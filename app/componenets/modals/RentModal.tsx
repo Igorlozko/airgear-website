@@ -114,7 +114,7 @@ const RentModal = ()=>{
    },[step])
 
     let bodyContent = (
-        <div className="flex dlex-col gap-8">
+        <div className="flex flex-col gap-8">
             <Heading
                 title = "Which of these best describes your Gear"
                 subtitle="Pick a category"
@@ -248,7 +248,7 @@ const RentModal = ()=>{
         actionLable={actionLable}
         secondaryActionLable={secondaryActionLable}
         secondaryAction={step == STEPS.CATEGORY ? undefined : onBack}
-        title = "My Gear Repo"
+        title = "Rent your gear"
         body = {bodyContent}
         />
     );

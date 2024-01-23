@@ -61,7 +61,7 @@ const ListingInfo: React.FC<ListingInfoProps> =({
                     "
                 >
                     <div>
-                        {guestCount} guests
+                        {guestCount} renter per iteam
                     </div>
                 </div>
             </div>
