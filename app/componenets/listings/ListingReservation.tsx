@@ -3,8 +3,11 @@
 import {Range} from 'react-date-range';
 import Calendar from '../inputs/Calendar';
 import Button from '../Button';
+import Avatar from '../Avatar';
+import { SafeUser } from '@/app/types';
 
 interface ListingReservationProps {
+    user: SafeUser;
     price: number;
     dateRange: Range;
     totalPrice: number;
@@ -15,6 +18,7 @@ interface ListingReservationProps {
 }
 
 const ListingReservation: React.FC<ListingReservationProps> =({
+    user,
     price,
     dateRange,
     totalPrice,
@@ -73,7 +77,26 @@ const ListingReservation: React.FC<ListingReservationProps> =({
                     €{totalPrice}
                 </div>
             </div>
+            <hr/>
+            <div>
+                <div
+                    className="
+                    p-4
+                    flex
+                    flex-col
+                    items-center
+                    justify-between
+                    font-semibold
+                    text-lg
+                    "
+                >
+                    <Avatar src={user?.image}/>
+                    <div>Hosted by {user?.name}</div>
+
+                </div>
+            </div>
         </div>
+        
     );
 }
 
